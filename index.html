@@ -20,7 +20,7 @@
   .filter-btn { flex-shrink: 0; padding: 5px 13px; border-radius: 99px; border: 1px solid #e0e0dc; background: transparent; font-size: 12px; color: #666; cursor: pointer; white-space: nowrap; transition: all 0.15s; }
   .filter-btn:hover { border-color: #b0b0aa; color: #333; }
   .filter-btn.active { background: #534AB7; color: #fff; border-color: #534AB7; }
-  .filter-count { display: inline-block; padding: 0 5px; font-size: 11px; margin-left: 3px; }
+  .filter-count { padding: 0 4px; font-size: 11px; }
   .filter-btn:not(.active) .filter-count { color: #aaa; }
   .divider { width: 1px; height: 16px; background: #e8e8e5; flex-shrink: 0; margin: 0 2px; }
 
@@ -31,36 +31,54 @@
   .stat-num { font-size: 22px; font-weight: 600; color: #1a1a1a; }
 
   .toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-  .toolbar-left { display: flex; align-items: center; gap: 8px; }
   .sort-select { border: 1px solid #e0e0dc; border-radius: 8px; padding: 6px 10px; font-size: 12px; color: #555; background: #fff; cursor: pointer; outline: none; }
 
   .table-wrap { background: #fff; border-radius: 12px; border: 1px solid #e8e8e5; overflow: hidden; }
   table { width: 100%; border-collapse: collapse; }
-  th { text-align: left; font-size: 11px; font-weight: 500; color: #999; padding: 10px 14px; border-bottom: 1px solid #e8e8e5; white-space: nowrap; background: #fafaf8; cursor: pointer; user-select: none; }
-  th:hover { color: #555; }
+  th { text-align: left; font-size: 11px; font-weight: 500; color: #999; padding: 10px 14px; border-bottom: 1px solid #e8e8e5; white-space: nowrap; background: #fafaf8; }
   td { padding: 0; border-bottom: 1px solid #f0f0ec; vertical-align: top; }
   tr:last-child td { border-bottom: none; }
   tr:hover .td-i { background: #fafaf8; }
   tr.exp .td-i { background: #fafaf8; }
   .td-i { padding: 11px 14px; }
 
-  .title-row { display: flex; align-items: center; gap: 6px; cursor: pointer; }
-  .chevron { font-size: 10px; color: #ccc; transition: transform 0.15s; flex-shrink: 0; }
+  .title-row { display: flex; align-items: flex-start; gap: 6px; cursor: pointer; }
+  .chevron { font-size: 10px; color: #ccc; transition: transform 0.15s; flex-shrink: 0; margin-top: 3px; }
   .chevron.open { transform: rotate(180deg); }
   .title-text { font-size: 13px; color: #1a1a1a; line-height: 1.4; flex: 1; }
-
   .cat-tag { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; margin-top: 4px; }
-  .cat-SNS       { background: #E6F1FB; color: #0C447C; }
-  .cat-이벤트    { background: #FAEEDA; color: #633806; }
-  .cat-오프라인  { background: #EAF3DE; color: #27500A; }
-  .cat-팩스메일  { background: #EEEDFE; color: #3C3489; }
+  .cat-SNS      { background: #E6F1FB; color: #0C447C; }
+  .cat-이벤트   { background: #FAEEDA; color: #633806; }
+  .cat-오프라인 { background: #EAF3DE; color: #27500A; }
+  .cat-팩스메일 { background: #EEEDFE; color: #3C3489; }
 
-  .memo-panel { display: none; border-top: 1px solid #f0f0ec; background: #fafaf8; }
-  .memo-panel.open { display: block; }
-  .memo-inner { padding: 10px 14px 12px 36px; }
-  .memo-label { font-size: 11px; color: #aaa; margin-bottom: 5px; }
-  .memo-inner textarea { width: 100%; border: 1px solid #e0e0dc; border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.6; background: #fff; color: #1a1a1a; resize: vertical; min-height: 68px; font-family: inherit; outline: none; }
-  .memo-inner textarea:focus { border-color: #534AB7; }
+  /* 펼침 패널 */
+  .expand-panel { display: none; border-top: 1px solid #f0f0ec; background: #fafaf8; }
+  .expand-panel.open { display: block; }
+  .panel-inner { padding: 12px 14px 14px 36px; display: flex; flex-direction: column; gap: 14px; }
+
+  /* 메모 */
+  .memo-section .section-label { font-size: 11px; color: #aaa; margin-bottom: 5px; }
+  .memo-section textarea { width: 100%; border: 1px solid #e0e0dc; border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.6; background: #fff; color: #1a1a1a; resize: vertical; min-height: 60px; font-family: inherit; outline: none; }
+  .memo-section textarea:focus { border-color: #534AB7; }
+
+  /* 댓글 */
+  .comment-section .section-label { font-size: 11px; color: #aaa; margin-bottom: 8px; }
+  .comment-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+  .comment-item { display: flex; gap: 8px; align-items: flex-start; }
+  .comment-av { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+  .comment-body { flex: 1; background: #fff; border: 1px solid #e8e8e5; border-radius: 8px; padding: 7px 10px; }
+  .comment-author { font-size: 11px; font-weight: 600; color: #555; margin-bottom: 2px; }
+  .comment-text { font-size: 12px; color: #333; line-height: 1.5; }
+  .comment-time { font-size: 10px; color: #bbb; margin-top: 2px; }
+  .comment-input-row { display: flex; gap: 8px; align-items: center; }
+  .comment-author-input { width: 90px; border: 1px solid #e0e0dc; border-radius: 8px; padding: 7px 10px; font-size: 12px; color: #1a1a1a; background: #fff; font-family: inherit; outline: none; flex-shrink: 0; }
+  .comment-author-input:focus { border-color: #534AB7; }
+  .comment-text-input { flex: 1; border: 1px solid #e0e0dc; border-radius: 8px; padding: 7px 10px; font-size: 12px; color: #1a1a1a; background: #fff; font-family: inherit; outline: none; }
+  .comment-text-input:focus { border-color: #534AB7; }
+  .comment-submit { background: #534AB7; color: #fff; border: none; border-radius: 8px; padding: 7px 14px; font-size: 12px; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+  .comment-submit:hover { background: #3C3489; }
+  .no-comment { font-size: 12px; color: #ccc; }
 
   .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 99px; cursor: pointer; white-space: nowrap; user-select: none; }
   .b0 { background: #FAEEDA; color: #633806; }
@@ -105,9 +123,6 @@
   .btn-ok { background: #534AB7; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 13px; cursor: pointer; font-weight: 500; }
   .btn-ok:hover { background: #3C3489; }
   .btn-ok:disabled { background: #b0aee0; cursor: not-allowed; }
-
-  /* 수정 모달 */
-  .edit-modal { max-width: 480px; }
 
   .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: #fff; padding: 10px 20px; border-radius: 99px; font-size: 13px; z-index: 300; opacity: 0; transition: opacity 0.2s; pointer-events: none; white-space: nowrap; }
   .toast.show { opacity: 1; }
@@ -158,13 +173,11 @@
   </div>
 
   <div class="toolbar">
-    <div class="toolbar-left">
-      <select class="sort-select" id="sort-select" onchange="applySort()">
-        <option value="latest">최신순</option>
-        <option value="likes">추천 많은 순</option>
-        <option value="plan">실행 예정일 순</option>
-      </select>
-    </div>
+    <select class="sort-select" id="sort-select" onchange="applySort()">
+      <option value="latest">최신순</option>
+      <option value="likes">추천 많은 순</option>
+      <option value="plan">실행 예정일 순</option>
+    </select>
     <span id="result-label" style="font-size:12px;color:#aaa"></span>
   </div>
 
@@ -173,11 +186,11 @@
       <thead>
         <tr>
           <th style="width:30%">아이디어</th>
-          <th style="width:11%">담당자</th>
+          <th style="width:12%">담당자</th>
           <th style="width:12%">진행 상태</th>
           <th style="width:9%;text-align:center">추천</th>
           <th style="width:10%">등록일</th>
-          <th style="width:12%">실행 예정일</th>
+          <th style="width:13%">실행 예정일</th>
           <th style="width:7%"></th>
         </tr>
       </thead>
@@ -225,10 +238,10 @@
 
 <!-- 수정 모달 -->
 <div class="overlay" id="edit-overlay">
-  <div class="modal edit-modal">
+  <div class="modal">
     <div class="modal-title">아이디어 수정</div>
     <div class="field"><label>아이디어 제목 *</label><input id="e-title" placeholder="한 줄로 요약해주세요"></div>
-    <div class="field"><label>세부 내용</label><textarea id="e-memo" placeholder="배경, 기대효과, 실행 방법 등"></textarea></div>
+    <div class="field"><label>세부 내용</label><textarea id="e-memo"></textarea></div>
     <div class="field-row">
       <div class="field"><label>담당자</label><input id="e-author" placeholder="이름"></div>
       <div class="field"><label>카테고리</label>
@@ -261,7 +274,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-const API_URL = 'https://script.google.com/macros/s/AKfycbyM8j-z0NeF_SzNhRYUNbuRHgXr_cHuXu2-OBylDyNTjNkl4ra9Op5Pl5WvM8Fig6E0OQ/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbziEJg9BNBncM9q7peqd52Q1GBe_P6QwLEiCRrn3p0LSXBRVczZFklHXyPpTcozkkYjFQ/exec';
 
 const STATUS_LIST = ['검토중','진행중','완료','보류'];
 const BADGE_CLS   = ['b0','b1','b2','b3'];
@@ -269,15 +282,14 @@ const AV_COLORS   = [
   ['#EEEDFE','#3C3489'],['#E1F5EE','#085041'],
   ['#E6F1FB','#0C447C'],['#FAEEDA','#633806'],['#FBEAF0','#72243E']
 ];
-const CAT_KEYS = { 'SNS':'SNS','이벤트':'이벤트','오프라인':'오프라인','팩스/메일':'팩스메일' };
 
 let ideas = [];
+let comments = {};  // { ideaId: [{author, text, time}] }
 let expanded = {};
 let currentFilter = '전체';
 let currentSort = 'latest';
 let editingId = null;
 
-/* ── 유틸 ── */
 function avStyle(name) {
   const i = (name||'익').charCodeAt(0) % AV_COLORS.length;
   return `background:${AV_COLORS[i][0]};color:${AV_COLORS[i][1]}`;
@@ -286,6 +298,10 @@ function fmtDate(s) {
   if (!s) return '—';
   const p = s.split('-');
   return p.length === 3 ? `${p[1]}.${p[2]}` : s;
+}
+function fmtTime(s) {
+  if (!s) return '';
+  return s.slice(0,16).replace('T',' ');
 }
 function planClass(s) {
   if (!s) return '';
@@ -303,8 +319,7 @@ function toast(msg) {
   setTimeout(() => t.classList.remove('show'), 2200);
 }
 function catCls(cat) {
-  if (!cat) return '';
-  return 'cat-' + cat.replace('/','');
+  return 'cat-' + (cat||'').replace('/','');
 }
 
 /* ── 로드 ── */
@@ -313,9 +328,8 @@ async function loadIdeas() {
     const res = await fetch(API_URL + '?action=list');
     const data = await res.json();
     ideas = data.map(d => ({ ...d, myLike: false }));
-    // 저장된 작성자 이름 복원
     const saved = localStorage.getItem('idea_author');
-    if (saved) document.getElementById('f-author').value = saved;
+    if (saved) { document.getElementById('f-author').value = saved; }
     renderAll();
   } catch(e) {
     document.getElementById('tbody').innerHTML =
@@ -323,26 +337,31 @@ async function loadIdeas() {
   }
 }
 
+async function loadComments(ideaId) {
+  try {
+    const res = await fetch(`${API_URL}?action=comments&ideaId=${ideaId}`);
+    const data = await res.json();
+    comments[ideaId] = data;
+    renderComments(ideaId);
+  } catch(e) {}
+}
+
 /* ── 필터 & 정렬 ── */
 function getFiltered() {
   let list = [...ideas];
-  if (currentFilter === '전체') {
-    // 전체
-  } else if (['검토중','진행중','완료','보류'].includes(currentFilter)) {
+  if (currentFilter === '전체') {}
+  else if (['검토중','진행중','완료','보류'].includes(currentFilter)) {
     list = list.filter(d => d.status === currentFilter);
   } else {
     list = list.filter(d => d.category === currentFilter);
   }
-  // 정렬
   if (currentSort === 'likes') list.sort((a,b) => (parseInt(b.likes)||0) - (parseInt(a.likes)||0));
   else if (currentSort === 'plan') list.sort((a,b) => {
     if (!a.plan) return 1; if (!b.plan) return -1;
     return a.plan.localeCompare(b.plan);
   });
-  // latest는 이미 서버에서 최신순
   return list;
 }
-
 function setFilter(f, btn) {
   currentFilter = f;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -355,18 +374,16 @@ function applySort() {
 }
 
 /* ── 렌더 ── */
-function renderAll() {
-  updateCounts();
-  updateStats();
-  renderTable();
-}
+function renderAll() { updateCounts(); updateStats(); renderTable(); }
+
 function updateCounts() {
   document.getElementById('cnt-전체').textContent = ideas.length;
   ['검토중','진행중','완료','보류'].forEach(s => {
     const el = document.getElementById('cnt-' + s);
     if (el) el.textContent = ideas.filter(d => d.status === s).length;
   });
-  Object.entries(CAT_KEYS).forEach(([cat, key]) => {
+  const catMap = {'SNS':'SNS','이벤트':'이벤트','오프라인':'오프라인','팩스/메일':'팩스메일'};
+  Object.entries(catMap).forEach(([cat, key]) => {
     const el = document.getElementById('cnt-' + key);
     if (el) el.textContent = ideas.filter(d => d.category === cat).length;
   });
@@ -377,6 +394,7 @@ function updateStats() {
   document.getElementById('s-done').textContent = ideas.filter(d => d.status === '완료').length;
   document.getElementById('s-likes').textContent = ideas.reduce((a,d) => a + (parseInt(d.likes)||0), 0);
 }
+
 function renderTable() {
   const list = getFiltered();
   document.getElementById('result-label').textContent = `${list.length}개`;
@@ -390,7 +408,8 @@ function renderTable() {
     const bc = BADGE_CLS[si >= 0 ? si : 0];
     const isOpen = !!expanded[d.id];
     const pc = planClass(d.plan);
-    const catClass = catCls(d.category);
+    const cmtList = comments[d.id] || [];
+    const cmtCount = cmtList.length;
     return `
     <tr class="${isOpen ? 'exp' : ''}" id="row-${d.id}">
       <td>
@@ -399,14 +418,30 @@ function renderTable() {
             <span class="chevron ${isOpen ? 'open' : ''}">▼</span>
             <div style="flex:1">
               <div class="title-text">${esc(d.title)}</div>
-              ${d.category ? `<span class="cat-tag ${catClass}">${esc(d.category)}</span>` : ''}
+              <div style="display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap">
+                ${d.category ? `<span class="cat-tag ${catCls(d.category)}">${esc(d.category)}</span>` : ''}
+                ${cmtCount > 0 ? `<span style="font-size:10px;color:#888">💬 ${cmtCount}</span>` : ''}
+              </div>
             </div>
           </div>
         </div>
-        <div class="memo-panel ${isOpen ? 'open' : ''}" id="memo-${d.id}">
-          <div class="memo-inner">
-            <div class="memo-label">📝 세부 메모</div>
-            <textarea placeholder="내용을 입력하세요..." onblur="saveMemo('${d.id}', this.value)">${esc(d.memo||'')}</textarea>
+        <div class="expand-panel ${isOpen ? 'open' : ''}" id="panel-${d.id}">
+          <div class="panel-inner">
+            <div class="memo-section">
+              <div class="section-label">📝 세부 메모</div>
+              <textarea placeholder="내용을 입력하세요..." onblur="saveMemo('${d.id}', this.value)">${esc(d.memo||'')}</textarea>
+            </div>
+            <div class="comment-section">
+              <div class="section-label">💬 팀원 의견 <span id="cmt-count-${d.id}" style="color:#ccc">${cmtCount > 0 ? `(${cmtCount})` : ''}</span></div>
+              <div class="comment-list" id="cmt-list-${d.id}">
+                ${renderCommentHTML(d.id)}
+              </div>
+              <div class="comment-input-row">
+                <input class="comment-author-input" id="cmt-author-${d.id}" placeholder="이름" value="${esc(localStorage.getItem('idea_author')||'')}">
+                <input class="comment-text-input" id="cmt-text-${d.id}" placeholder="의견을 남겨주세요..." onkeydown="if(event.key==='Enter')addComment('${d.id}')">
+                <button class="comment-submit" onclick="addComment('${d.id}')">등록</button>
+              </div>
+            </div>
           </div>
         </div>
       </td>
@@ -424,7 +459,8 @@ function renderTable() {
       </div></td>
       <td><div class="td-i"><span class="date-txt">${fmtDate(d.date)}</span></div></td>
       <td><div class="td-i">
-        <input type="date" class="date-input ${pc}" value="${d.plan||''}" onchange="savePlan('${d.id}', this.value)" title="${pc==='overdue'?'기한 초과':pc==='soon'?'곧 마감':'실행 예정일'}">
+        <input type="date" class="date-input ${pc}" value="${d.plan||''}" onchange="savePlan('${d.id}', this.value)"
+          title="${pc==='overdue'?'기한 초과':pc==='soon'?'곧 마감':'실행 예정일'}">
       </div></td>
       <td><div class="td-i">
         <div class="row-actions">
@@ -436,10 +472,62 @@ function renderTable() {
   }).join('');
 }
 
-/* ── 인터랙션 ── */
+function renderCommentHTML(ideaId) {
+  const list = comments[ideaId] || [];
+  if (!list.length) return `<div class="no-comment">아직 의견이 없어요</div>`;
+  return list.map(c => `
+    <div class="comment-item">
+      <div class="comment-av" style="${avStyle(c.author||'익')}">${(c.author||'익').slice(0,2)}</div>
+      <div class="comment-body">
+        <div class="comment-author">${esc(c.author||'익명')}</div>
+        <div class="comment-text">${esc(c.text)}</div>
+        <div class="comment-time">${fmtTime(c.time)}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderComments(ideaId) {
+  const el = document.getElementById(`cmt-list-${ideaId}`);
+  const cnt = document.getElementById(`cmt-count-${ideaId}`);
+  if (!el) return;
+  const list = comments[ideaId] || [];
+  el.innerHTML = renderCommentHTML(ideaId);
+  if (cnt) cnt.textContent = list.length > 0 ? `(${list.length})` : '';
+  // 카드 댓글 수 배지도 업데이트
+  const idea = ideas.find(d => d.id === ideaId);
+  if (idea) {
+    const badge = document.querySelector(`#row-${ideaId} .title-row`);
+    if (badge) {
+      const cmtBadge = badge.querySelector('span[data-cmt]');
+      // 간단히 전체 재렌더 없이 카운트만
+    }
+  }
+}
+
+/* ── 댓글 추가 ── */
+async function addComment(ideaId) {
+  const authorEl = document.getElementById(`cmt-author-${ideaId}`);
+  const textEl   = document.getElementById(`cmt-text-${ideaId}`);
+  const author = authorEl.value.trim() || '익명';
+  const text   = textEl.value.trim();
+  if (!text) return;
+  if (author !== '익명') localStorage.setItem('idea_author', author);
+  const time = new Date().toISOString();
+  const newCmt = { author, text, time };
+  if (!comments[ideaId]) comments[ideaId] = [];
+  comments[ideaId].push(newCmt);
+  textEl.value = '';
+  renderComments(ideaId);
+  try {
+    await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'addComment', ideaId, author, text, time }) });
+  } catch(e) {}
+}
+
+/* ── 펼침 ── */
 function toggleExpand(id) {
   expanded[id] = !expanded[id];
   renderTable();
+  if (expanded[id] && !comments[id]) loadComments(id);
 }
 
 /* ── API ── */
@@ -447,11 +535,9 @@ async function cycleStatus(id, si) {
   const next = STATUS_LIST[(si + 1) % STATUS_LIST.length];
   const idea = ideas.find(d => d.id === id);
   if (!idea) return;
-  idea.status = next;
-  renderAll();
-  try {
-    await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'status', value: next }) });
-  } catch(e) { toast('저장 실패'); }
+  idea.status = next; renderAll();
+  try { await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'status', value: next }) }); }
+  catch(e) { toast('저장 실패'); }
 }
 async function toggleLike(id) {
   const idea = ideas.find(d => d.id === id);
@@ -459,46 +545,36 @@ async function toggleLike(id) {
   idea.myLike = !idea.myLike;
   idea.likes = (parseInt(idea.likes)||0) + (idea.myLike ? 1 : -1);
   renderAll();
-  try {
-    await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'likes', value: idea.likes }) });
-  } catch(e) {}
+  try { await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'likes', value: idea.likes }) }); }
+  catch(e) {}
 }
 async function saveMemo(id, val) {
   const idea = ideas.find(d => d.id === id);
   if (!idea || idea.memo === val) return;
   idea.memo = val;
-  try {
-    await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'memo', value: val }) });
-    toast('메모 저장됨');
-  } catch(e) { toast('저장 실패'); }
+  try { await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'memo', value: val }) }); toast('메모 저장됨'); }
+  catch(e) { toast('저장 실패'); }
 }
 async function savePlan(id, val) {
   const idea = ideas.find(d => d.id === id);
   if (!idea) return;
-  idea.plan = val;
-  renderAll();
-  try {
-    await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'plan', value: val }) });
-    toast('날짜 저장됨');
-  } catch(e) { toast('저장 실패'); }
+  idea.plan = val; renderAll();
+  try { await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'update', id, field:'plan', value: val }) }); toast('날짜 저장됨'); }
+  catch(e) { toast('저장 실패'); }
 }
 async function deleteIdea(id) {
   if (!confirm('이 아이디어를 삭제할까요?')) return;
   ideas = ideas.filter(d => d.id !== id);
-  delete expanded[id];
+  delete expanded[id]; delete comments[id];
   renderAll();
-  try {
-    await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'delete', id }) });
-    toast('삭제됐어요');
-  } catch(e) { toast('삭제 실패'); }
+  try { await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'delete', id }) }); toast('삭제됐어요'); }
+  catch(e) { toast('삭제 실패'); }
 }
 
 /* ── 추가 모달 ── */
 function openModal() {
   const saved = localStorage.getItem('idea_author');
-  if (saved && !document.getElementById('f-author').value) {
-    document.getElementById('f-author').value = saved;
-  }
+  if (saved && !document.getElementById('f-author').value) document.getElementById('f-author').value = saved;
   document.getElementById('overlay').classList.add('open');
   setTimeout(() => document.getElementById('f-title').focus(), 100);
 }
@@ -514,13 +590,11 @@ async function submitIdea() {
   const today = new Date();
   const pad = n => String(n).padStart(2,'0');
   const newIdea = {
-    title,
-    memo:     document.getElementById('f-memo').value.trim(),
-    author,
-    category: document.getElementById('f-cat').value,
-    status:   document.getElementById('f-status').value,
-    plan:     document.getElementById('f-plan').value,
-    date:     `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`,
+    title, memo: document.getElementById('f-memo').value.trim(),
+    author, category: document.getElementById('f-cat').value,
+    status: document.getElementById('f-status').value,
+    plan: document.getElementById('f-plan').value,
+    date: `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`,
     likes: 0, myLike: false
   };
   try {
@@ -528,8 +602,7 @@ async function submitIdea() {
     const result = await res.json();
     newIdea.id = result.id;
     ideas.unshift(newIdea);
-    renderAll();
-    closeModal();
+    renderAll(); closeModal();
     ['f-title','f-memo','f-plan'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('f-status').value = '검토중';
     toast('아이디어가 등록됐어요!');
@@ -559,23 +632,20 @@ async function saveEdit() {
   const idea = ideas.find(d => d.id === editingId);
   if (!idea) return;
   const updated = {
-    title,
-    memo:     document.getElementById('e-memo').value.trim(),
-    author:   document.getElementById('e-author').value.trim() || '익명',
+    title, memo: document.getElementById('e-memo').value.trim(),
+    author: document.getElementById('e-author').value.trim() || '익명',
     category: document.getElementById('e-cat').value,
-    status:   document.getElementById('e-status').value,
-    plan:     document.getElementById('e-plan').value,
+    status: document.getElementById('e-status').value,
+    plan: document.getElementById('e-plan').value,
   };
   Object.assign(idea, updated);
-  renderAll();
-  closeEditModal();
+  renderAll(); closeEditModal();
   try {
     await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'updateAll', id: editingId, ...updated }) });
     toast('수정됐어요');
   } catch(e) { toast('저장 실패'); }
 }
 
-// ESC로 모달 닫기
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeModal(); closeEditModal(); }
 });
